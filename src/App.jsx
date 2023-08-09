@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import LikeButton from "./components/LikeButton";
+import { useState } from 'react';
+import LikeButton from './components/LikeButton';
 
 // const App = () =>
 //   React.createElement(
@@ -9,8 +9,8 @@ import LikeButton from "./components/LikeButton";
 //     React.createElement(LikeButton)
 //   );
 
-const App = () => {
-  const [message, setMessage] = useState("Hello Johnson");
+function App() {
+  const [message, setMessage] = useState('Hello Johnson');
 
   return (
     <div className="py-12 flex justify-center items-center gap-4">
@@ -19,6 +19,6 @@ const App = () => {
       <LikeButton />
     </div>
   );
-};
+}
 
 export default App;
