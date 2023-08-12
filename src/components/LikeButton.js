@@ -7,7 +7,7 @@ const LikeButton = () => {
       className="border px-4 py-2 rounded"
       onClick={() => setCount(count + 1)}
     >
-      {`Like ${count}`}
+      {`Like ${count}!!`}
     </button>
   );
   // return React.createElement(
