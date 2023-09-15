@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  mode: 'development',
+  entry: './src/index.jsx',
   output: {
-    path: path.resolve(__dirname, "docs"),
-    filename: "index.js",
+    path: path.resolve(__dirname, 'docs'),
+    filename: 'index.js',
   },
   module: {
     rules: [
@@ -16,31 +16,31 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 1,
             },
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
           },
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.js(x?)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
-              ["@babel/preset-env", { targets: "defaults" }],
+              ['@babel/preset-env', { targets: 'defaults' }],
               [
-                "@babel/preset-react",
+                '@babel/preset-react',
                 {
-                  runtime: "automatic",
+                  runtime: 'automatic',
                 },
               ],
             ],
@@ -51,14 +51,17 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, "public"),
+      directory: path.join(__dirname, 'public'),
     },
     compress: true,
     port: 3000,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: './src/index.html',
     }),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+  },
 };
